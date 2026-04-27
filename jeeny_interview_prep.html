@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeeny Platform Engineer — Interview Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0a0c10;
+    --bg2:      #0f1218;
+    --bg3:      #151a22;
+    --border:   #1e2530;
+    --amber:    #f0a500;
+    --amber2:   #ffbe3d;
+    --green:    #3dffa0;
+    --red:      #ff5f5f;
+    --blue:     #5bb4ff;
+    --muted:    #4a5568;
+    --text:     #c8d4e3;
+    --text2:    #7a8fa8;
+    --white:    #eef2f8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── BACKGROUND GRID ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(240,165,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240,165,0,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* ─── HEADER ─── */
+  header {
+    padding: 40px 0 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  }
+
+  .header-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
+
+  .badge-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    padding: 4px 10px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .badge-amber { background: rgba(240,165,0,0.15); color: var(--amber); border: 1px solid rgba(240,165,0,0.3); }
+  .badge-red   { background: rgba(255,95,95,0.12); color: var(--red);   border: 1px solid rgba(255,95,95,0.3); }
+  .badge-green { background: rgba(61,255,160,0.12); color: var(--green); border: 1px solid rgba(61,255,160,0.3); }
+  .badge-blue  { background: rgba(91,180,255,0.12); color: var(--blue);  border: 1px solid rgba(91,180,255,0.3); }
+
+  h1 {
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  h1 span { color: var(--amber); }
+
+  .header-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 10px;
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .header-meta span { display: flex; align-items: center; gap: 6px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); display: inline-block; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .score-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    min-width: 180px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .score-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--amber), var(--amber2));
+  }
+  .score-num {
+    font-size: 52px; font-weight: 800;
+    color: var(--amber); line-height: 1;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .score-label { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+
+  /* ─── TABS ─── */
+  nav.tabs {
+    display: flex; gap: 4px;
+    padding: 24px 0 0;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .tab-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 500;
+    padding: 10px 18px;
+    border: none; border-radius: 6px 6px 0 0;
+    background: transparent;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--text); background: var(--bg3); }
+  .tab-btn.active { color: var(--amber); border-bottom-color: var(--amber); background: var(--bg3); }
+
+  /* ─── SECTIONS ─── */
+  .tab-panel { display: none; padding: 32px 0; }
+  .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+  h2 {
+    font-size: 20px; font-weight: 700;
+    color: var(--white); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2 .icon { font-size: 16px; }
+  h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+
+  /* ─── GRID ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media(max-width:768px) { .grid-2,.grid-3 { grid-template-columns: 1fr; } }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(240,165,0,0.25); }
+
+  .card-amber { border-left: 3px solid var(--amber); }
+  .card-green { border-left: 3px solid var(--green); }
+  .card-red   { border-left: 3px solid var(--red); }
+  .card-blue  { border-left: 3px solid var(--blue); }
+
+  /* ─── ALIGNMENT BARS ─── */
+  .align-item { margin-bottom: 16px; }
+  .align-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .align-label { font-size: 13px; font-weight: 500; color: var(--text); }
+  .align-pct { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  .bar-track {
+    height: 6px; background: var(--bg3); border-radius: 3px; overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--amber), var(--amber2));
+    transition: width 1s ease;
+  }
+  .bar-fill.green-bar { background: linear-gradient(90deg, #2dd37c, var(--green)); }
+  .bar-fill.red-bar   { background: linear-gradient(90deg, #cc3333, var(--red)); }
+  .bar-fill.blue-bar  { background: linear-gradient(90deg, #3a7fc1, var(--blue)); }
+
+  /* ─── Q&A ─── */
+  .qa-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .qa-item:hover { border-color: rgba(240,165,0,0.2); }
+  .qa-q {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px;
+    background: var(--bg2);
+    font-size: 14px; font-weight: 500; color: var(--white);
+    user-select: none;
+  }
+  .qa-q:hover { background: var(--bg3); }
+  .qa-arrow { color: var(--amber); font-size: 12px; transition: transform 0.2s; flex-shrink: 0; }
+  .qa-item.open .qa-arrow { transform: rotate(180deg); }
+  .qa-a {
+    display: none; padding: 16px 18px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text); line-height: 1.7;
+  }
+  .qa-item.open .qa-a { display: block; }
+
+  .qa-a .star-block { margin-top: 10px; }
+  .star-row { display: flex; gap: 8px; margin-bottom: 6px; align-items: flex-start; }
+  .star-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 7px; border-radius: 3px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .s-tag  { background: rgba(91,180,255,0.15); color: var(--blue); }
+  .t-tag  { background: rgba(240,165,0,0.15); color: var(--amber); }
+  .a-tag  { background: rgba(61,255,160,0.15); color: var(--green); }
+  .r-tag  { background: rgba(255,95,95,0.15); color: var(--red); }
+
+  /* ─── CODE ─── */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: rgba(240,165,0,0.08);
+    color: var(--amber2);
+    padding: 2px 6px; border-radius: 3px;
+    border: 1px solid rgba(240,165,0,0.15);
+  }
+  pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; line-height: 1.6;
+    background: #070910;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    color: var(--text);
+    margin: 10px 0;
+  }
+  pre .kw  { color: var(--amber); }
+  pre .val { color: var(--green); }
+  pre .cmt { color: var(--muted); }
+
+  /* ─── PILLS ─── */
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .pill {
+    font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    background: var(--bg3);
+  }
+  .pill.match { border-color: rgba(61,255,160,0.3); color: var(--green); background: rgba(61,255,160,0.08); }
+  .pill.gap   { border-color: rgba(255,95,95,0.3);  color: var(--red);   background: rgba(255,95,95,0.08); }
+  .pill.partial { border-color: rgba(240,165,0,0.3); color: var(--amber); background: rgba(240,165,0,0.08); }
+
+  /* ─── INFO BOX ─── */
+  .info-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13px; color: var(--text);
+    margin: 10px 0;
+  }
+  .info-box.warn { border-color: rgba(240,165,0,0.3); background: rgba(240,165,0,0.05); }
+  .info-box.tip  { border-color: rgba(61,255,160,0.3); background: rgba(61,255,160,0.05); }
+  .info-box.danger{ border-color: rgba(255,95,95,0.3); background: rgba(255,95,95,0.05); }
+
+  /* ─── LIST ─── */
+  ul.styled { list-style: none; }
+  ul.styled li {
+    padding: 8px 0 8px 22px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px; color: var(--text);
+    position: relative;
+  }
+  ul.styled li:last-child { border-bottom: none; }
+  ul.styled li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--amber); font-size: 10px; top: 10px;
+  }
+
+  /* ─── CHECKLIST ─── */
+  .checklist-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 13px; color: var(--text);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .check-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ─── TIMELINE ─── */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 15px; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(180deg, var(--amber), transparent);
+  }
+  .tl-item { display: flex; gap: 20px; margin-bottom: 20px; }
+  .tl-dot {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--bg3); border: 2px solid var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--amber); flex-shrink: 0; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tl-body { flex: 1; padding-top: 4px; }
+  .tl-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .tl-text  { font-size: 12px; color: var(--text2); }
+
+  /* ─── TABLE ─── */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 14px;
+    background: var(--bg3); color: var(--text2);
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    color: var(--text); vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ─── SECTION DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+    margin: 24px 0;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .mb-16 { margin-bottom: 16px; }
+  .mb-24 { margin-bottom: 24px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <div class="badge-row">
+          <span class="badge badge-red">⚡ TODAY — 4:00 PM PKT</span>
+          <span class="badge badge-amber">First Round · Onsite · Lahore</span>
+          <span class="badge badge-blue">Interviewer: Mansoor Rehman</span>
+        </div>
+        <h1>Jeeny <span>Platform Engineer</span><br>Interview Brief</h1>
+        <div class="header-meta">
+          <span><span class="dot"></span> Daud Farzand — 2026</span>
+          <span>📍 739, Block G4, Phase 2, Johar Town, Lahore</span>
+          <span>🕓 60 min window</span>
+        </div>
+      </div>
+      <div class="score-card">
+        <div class="score-num">81<span style="font-size:24px;color:var(--text2)">%</span></div>
+        <div class="score-label">Alignment Score</div>
+        <div style="margin-top:8px;font-size:11px;color:var(--text2)">Strong Match</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ TABS ═══ -->
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="showTab('alignment')">📊 Alignment</button>
+    <button class="tab-btn" onclick="showTab('questions')">🎯 Q&amp;A Prep</button>
+    <button class="tab-btn" onclick="showTab('gaps')">⚠️ Gaps &amp; Bridges</button>
+    <button class="tab-btn" onclick="showTab('technical')">⚙️ Technical Deep-Dives</button>
+    <button class="tab-btn" onclick="showTab('ask')">💬 Ask the Interviewer</button>
+    <button class="tab-btn" onclick="showTab('logistics')">🗺️ Day-Of Checklist</button>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       TAB 1 — ALIGNMENT
+  ══════════════════════════════════════════ -->
+  <div id="tab-alignment" class="tab-panel active">
+    <h2><span class="icon">📊</span> Requirement-by-Requirement Alignment</h2>
+
+    <div class="grid-2">
+      <!-- Left column — bars -->
+      <div>
+        <div class="section-label">Skill Coverage Depth</div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">Kubernetes & Container Orchestration</span>
+            <span class="align-pct" style="color:var(--green)">95%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill green-bar" style="width:95%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">CI/CD Pipelines (GitLab, GitHub Actions)</span>
+            <span class="align-pct" style="color:var(--green)">93%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill green-bar" style="width:93%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">Terraform / IaC</span>
+            <span class="align-pct" style="color:var(--green)">92%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill green-bar" style="width:92%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">AWS (EKS, EC2, S3, IAM)</span>
+            <span class="align-pct" style="color:var(--amber)">80%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">Monitoring (Prometheus, Grafana)</span>
+            <span class="align-pct" style="color:var(--green)">90%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill green-bar" style="width:90%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">Docker & Containerization</span>
+            <span class="align-pct" style="color:var(--green)">95%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill green-bar" style="width:95%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">Security / RBAC / DevSecOps</span>
+            <span class="align-pct" style="color:var(--amber)">78%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">Cost Optimization</span>
+            <span class="align-pct" style="color:var(--green)">88%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill green-bar" style="width:88%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">IDP / Self-Service Platform (Backstage)</span>
+            <span class="align-pct" style="color:var(--amber)">55%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">MongoDB / MySQL (Relational + Document DB)</span>
+            <span class="align-pct" style="color:var(--red)">30%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill red-bar" style="width:30%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">ELK Stack (Elasticsearch/Kibana)</span>
+            <span class="align-pct" style="color:var(--red)">35%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill red-bar" style="width:35%"></div></div>
+        </div>
+
+        <div class="align-item">
+          <div class="align-header">
+            <span class="align-label">Python / Bash / Go Scripting</span>
+            <span class="align-pct" style="color:var(--green)">90%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill green-bar" style="width:90%"></div></div>
+        </div>
+      </div>
+
+      <!-- Right column — summary -->
+      <div>
+        <div class="section-label">Match Summary</div>
+
+        <div class="card card-green mb-16">
+          <h3 style="color:var(--green)">✅ Strong Matches (Own the room)</h3>
+          <div class="pill-row">
+            <span class="pill match">Kubernetes (EKS/GKE)</span>
+            <span class="pill match">Terraform IaC</span>
+            <span class="pill match">GitHub Actions / GitLab CI</span>
+            <span class="pill match">Docker + multi-stage builds</span>
+            <span class="pill match">Prometheus + Grafana</span>
+            <span class="pill match">RBAC (5-tier production)</span>
+            <span class="pill match">FastAPI microservices</span>
+            <span class="pill match">Python + Bash</span>
+            <span class="pill match">Cost Optimization (-35%)</span>
+            <span class="pill match">High Availability 99.9%</span>
+            <span class="pill match">Secrets / JWT / API keys</span>
+            <span class="pill match">Self-service LLM platform</span>
+          </div>
+        </div>
+
+        <div class="card card-amber mb-16">
+          <h3 style="color:var(--amber)">⚡ Partial Matches (Bridge confidently)</h3>
+          <div class="pill-row">
+            <span class="pill partial">AWS EKS (have GKE depth)</span>
+            <span class="pill partial">IDP / Backstage (ServeLLM is an IDP)</span>
+            <span class="pill partial">Go (listed, less production depth)</span>
+            <span class="pill partial">IAM policies (basic exposure)</span>
+            <span class="pill partial">5+ yrs requirement (4 yrs actual)</span>
+          </div>
+        </div>
+
+        <div class="card card-red mb-16">
+          <h3 style="color:var(--red)">🔴 Gaps (Prepare your narrative)</h3>
+          <div class="pill-row">
+            <span class="pill gap">MongoDB Atlas</span>
+            <span class="pill gap">MySQL (PostgreSQL equivalent)</span>
+            <span class="pill gap">ELK Stack (have OpenTelemetry)</span>
+            <span class="pill gap">Jenkins (have GitLab/GitHub)</span>
+          </div>
+        </div>
+
+        <div class="info-box tip">
+          <strong style="color:var(--green)">💡 Key Insight:</strong> Your <strong>ServeLLM platform</strong> is effectively an Internal Developer Platform — multi-tenant self-service infrastructure with standardized workflows. Lead with this. Jeeny's IDP needs map almost 1:1 to what you already built.
+        </div>
+      </div>
+    </div>
+
+    <!-- JD Requirement table -->
+    <div class="divider"></div>
+    <h2><span class="icon">📋</span> JD Requirement × Your Evidence</h2>
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr>
+            <th>JD Requirement</th>
+            <th>Your Proof Point</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Design &amp; maintain Internal Developer Platform (IDP)</td>
+            <td>ServeLLM — multi-tenant LLM platform with self-service API access, 5-tier RBAC, per-org analytics, one-command deployment via Ansible + Docker Compose</td>
+            <td><span class="badge badge-green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>AWS EKS, EC2, RDS, S3, IAM</td>
+            <td>AWS EC2 + EKS on resume; Terraform AWS provisioning for hybrid cloud; WireGuard cross-cloud networking</td>
+            <td><span class="badge badge-amber">Good</span></td>
+          </tr>
+          <tr>
+            <td>Terraform IaC</td>
+            <td>Terraform AWS EC2 + GCP provisioning; automated with GitHub Actions; multi-env reproducibility</td>
+            <td><span class="badge badge-green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>CI/CD Pipelines</td>
+            <td>GitHub Actions + GitLab CI + ArgoCD; automated model validation, Alembic migrations, multi-stage Docker builds</td>
+            <td><span class="badge badge-green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>Prometheus, Grafana, ELK</td>
+            <td>Prometheus + Grafana + OpenTelemetry stack; real-time inference dashboards; <strong>ELK: can discuss architecture</strong></td>
+            <td><span class="badge badge-amber">Good</span></td>
+          </tr>
+          <tr>
+            <td>Scalability &amp; HA across services</td>
+            <td>99.9% uptime SLA; PgBouncer 200-connection pool; sub-second query latency; 1000+ concurrent users</td>
+            <td><span class="badge badge-green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>DevSecOps / IAM / Secrets</td>
+            <td>5-tier RBAC; JWT + API key middleware; Kubernetes RBAC security policies at Programmer's Force</td>
+            <td><span class="badge badge-amber">Good</span></td>
+          </tr>
+          <tr>
+            <td>Self-service tools &amp; DX improvement</td>
+            <td>Ansible-based one-command provisioning; standardized templates; 70% reduction in integration time via MCP</td>
+            <td><span class="badge badge-green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>Cost optimization</td>
+            <td>35% LLM API cost reduction; 60% connection overhead reduction; &lt;1.5GB memory per service; 90% faster deployment</td>
+            <td><span class="badge badge-green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>MongoDB / MySQL</td>
+            <td>PostgreSQL production depth (pgvector, PgBouncer, migrations); can discuss document DB concepts</td>
+            <td><span class="badge badge-red">Gap</span></td>
+          </tr>
+          <tr>
+            <td>Python / Bash / Go</td>
+            <td>Python (FastAPI, scripts, ML), Bash (automation), Go (listed on resume)</td>
+            <td><span class="badge badge-green">Strong</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB 2 — Q&A PREP
+  ══════════════════════════════════════════ -->
+  <div id="tab-questions" class="tab-panel">
+    <h2><span class="icon">🎯</span> Anticipated Questions &amp; STAR Answers</h2>
+
+    <div class="section-label mb-16">Behavioral &amp; Situational</div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        Tell me about yourself and why Platform Engineering.
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+        <strong>Opening pitch (90 seconds max):</strong><br><br>
+        "I'm an AI Platform Infrastructure Engineer currently at TechPrysm, where I build production AI serving infrastructure for US-based clients — think multi-tenant LLM platforms, RAG pipelines, and Kubernetes-based model serving. Before that at Techanzy, I architected ServeLLM from scratch: a production-grade, multi-tenant LLM platform that handles 1000+ concurrent users, 500+ streaming sessions, with a full CI/CD pipeline, Prometheus observability, and Ansible-based self-service provisioning.
+        <br><br>
+        I'm drawn to Platform Engineering because the leverage is extraordinary — you build once and every dev team in the company moves faster. With a ride-hailing ecosystem like Jeeny, the complexity of high-concurrency, multi-region microservices is exactly the kind of infrastructure challenge I want to own."
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        Describe a platform you built that enabled developer self-service.
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="star-block">
+          <div class="star-row"><span class="star-tag s-tag">S</span> <span>Techanzy needed multiple enterprise clients to use LLM services without the DevOps team becoming a bottleneck for each new org or user onboarding.</span></div>
+          <div class="star-row"><span class="star-tag t-tag">T</span> <span>Design a self-service LLM platform — API key generation, model access control, usage analytics — all without requiring my involvement per user.</span></div>
+          <div class="star-row"><span class="star-tag a-tag">A</span> <span>Built ServeLLM with 5-tier RBAC (SUPERADMIN → BILLING_USER), self-service API key management, per-org usage dashboards in Next.js, and one-command Ansible provisioning so a new org could be live in under 10 minutes. Standardized Docker Compose templates with health checks across all 6 services.</span></div>
+          <div class="star-row"><span class="star-tag r-tag">R</span> <span>70% reduction in developer integration time, 99% uptime SLA, zero DevOps-gated onboarding. Multiple enterprise clients running concurrently with complete data isolation.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        How have you handled a production incident? Walk me through root cause analysis.
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="star-block">
+          <div class="star-row"><span class="star-tag s-tag">S</span> <span>During peak load on ServeLLM, PgBouncer hit connection exhaustion — database queries timing out, cascading into API 503s for streaming sessions.</span></div>
+          <div class="star-row"><span class="star-tag t-tag">T</span> <span>Diagnose and restore service within SLA while simultaneously finding root cause to prevent recurrence.</span></div>
+          <div class="star-row"><span class="star-tag a-tag">A</span> <span>Prometheus alerted on <code>pgbouncer_pool_size_exceeded</code>. Checked Grafana — connection wait queue spiked at 3AM batch job. Bumped pool to 200, switched to transaction mode pooling, added Alembic migration to introduce connection timeouts. Post-incident: added load testing to CI gate.</span></div>
+          <div class="star-row"><span class="star-tag r-tag">R</span> <span>Reduced connection overhead by 60%, &lt;20ms DB latency, zero recurrence. Added automated health checks to catch this class of issue 10 minutes before user impact.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        How do you drive cost optimization in Kubernetes / cloud infrastructure?
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+        I approach cost optimization in three layers:<br><br>
+        <strong>1. Resource right-sizing</strong> — Set resource <code>requests</code> and <code>limits</code> based on Prometheus metrics, not guesswork. Achieved &lt;1.5GB memory per service in ServeLLM by profiling actual usage.<br><br>
+        <strong>2. Workload scheduling</strong> — Use node affinity, spot/preemptible instances for stateless inference workloads, reserved instances for stateful DB tier. For Jeeny's ride-hailing context I'd implement cluster autoscaler with scale-to-zero for non-critical batch services.<br><br>
+        <strong>3. Application-layer optimization</strong> — Response caching, intelligent routing of simple vs complex queries to smaller vs larger models, connection pooling (PgBouncer) to reduce per-request overhead.<br><br>
+        <strong>Result at Techanzy:</strong> 35% reduction in LLM API costs, 60% connection overhead reduction — all measurable via Grafana dashboards tied to business cost metrics.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        How do you implement DevSecOps in a microservices platform?
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+        "I treat security as a pipeline stage, not a post-deployment step:"<br><br>
+        <strong>Shift-left in CI/CD:</strong> <code>trivy</code> container image scanning in GitHub Actions, <code>checkov</code> for Terraform policy checks, secret scanning with <code>gitleaks</code> — all block the merge if critical.<br><br>
+        <strong>Runtime:</strong> Kubernetes RBAC with least-privilege service accounts, Network Policies for pod-to-pod isolation, Secrets Manager (or Vault) for credentials — never env vars in pod specs.<br><br>
+        <strong>API layer:</strong> JWT-based auth middleware, API key rotation policies, rate limiting per tenant to prevent abuse.<br><br>
+        <strong>At Programmer's Force:</strong> Implemented Kubernetes RBAC and security policies across production, standardized namespace isolation between teams.
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label mb-16">Technical Questions</div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        How does Kubernetes handle scaling? Explain HPA vs VPA vs KEDA.
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+        <strong>HPA (Horizontal Pod Autoscaler)</strong> — Scales replica count based on CPU/memory or custom metrics (Prometheus via KEDA adapter). Best for stateless workloads. Scales out, not up.<br><br>
+        <strong>VPA (Vertical Pod Autoscaler)</strong> — Adjusts resource requests/limits of existing pods. Requires pod restart. Use for workloads where adding replicas doesn't help (e.g., single-threaded processes).<br><br>
+        <strong>KEDA (Kubernetes Event-Driven Autoscaling)</strong> — Scale on external event sources: queue depth (SQS, RabbitMQ), Prometheus metrics, HTTP request rate. Critical for ride-hailing surge patterns — scale driver-matching services when request queue depth exceeds threshold.<br><br>
+        <em>For Jeeny specifically:</em> I'd pair KEDA with SQS queue metrics for trip dispatch services — scale to zero during off-peak (2–5AM), burst to 50+ pods at peak (evening rush). Cluster Autoscaler handles node provisioning behind it.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        Walk me through your Terraform module structure for a production EKS cluster.
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+<pre><span class="cmt"># Module structure I'd use for Jeeny EKS</span>
+infra/
+├── modules/
+│   ├── vpc/          <span class="cmt"># VPC, subnets, NAT, IGW</span>
+│   ├── eks/          <span class="cmt"># Cluster, node groups, IRSA</span>
+│   ├── rds/          <span class="cmt"># RDS/Aurora, subnet groups</span>
+│   ├── iam/          <span class="cmt"># Roles, policies, OIDC</span>
+│   └── monitoring/   <span class="cmt"># Prometheus, Grafana, alerts</span>
+├── envs/
+│   ├── dev/
+│   ├── staging/
+│   └── prod/
+└── backend.tf        <span class="cmt"># S3 + DynamoDB state locking</span>
+</pre>
+        Key practices: remote state in S3 with DynamoDB locking, IRSA (IAM Roles for Service Accounts) instead of static keys, <code>terraform workspace</code> per environment, PR-gated <code>plan</code> in CI, <code>apply</code> only on main merge. Atlantis or Spacelift for GitOps Terraform workflow.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        What's your approach to Kubernetes multi-tenancy and namespace isolation?
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+        <strong>Logical isolation (namespace-per-team):</strong><br>
+        — RBAC: each team gets a <code>ClusterRole</code> scoped to their namespace only<br>
+        — Network Policies: deny-all default, allow only necessary pod-to-pod paths<br>
+        — Resource Quotas + LimitRanges per namespace to prevent noisy-neighbor<br>
+        — Separate service accounts with IRSA for cloud resource access<br><br>
+        <strong>Hard isolation (when compliance demands it):</strong><br>
+        — Virtual clusters via vCluster, or separate node pools with taints/tolerations<br>
+        — Separate AWS accounts per environment (Control Tower landing zones)<br><br>
+        <strong>At ServeLLM:</strong> I implemented organization-level data isolation at the application layer (PostgreSQL row-level policies + RBAC middleware) which is the analogue for SaaS multi-tenancy.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        How would you set up observability for a ride-hailing platform from scratch?
+        <span class="qa-arrow">▼</span>
+      </div>
+      <div class="qa-a">
+        <strong>Three pillars approach:</strong><br><br>
+        <strong>Metrics (Prometheus + Grafana):</strong> Scrape kube-state-metrics, node-exporter, and app /metrics endpoints. Define SLOs as recording rules. Alert via Alertmanager → PagerDuty/Slack. Key metrics for ride-hailing: trip dispatch latency p99, driver availability %, payment success rate.<br><br>
+        <strong>Logs (ELK or Loki):</strong> Fluent Bit DaemonSet collects all pod logs → Elasticsearch (or Loki for cost) → Kibana/Grafana dashboards. Structure logs as JSON with trace IDs from day one.<br><br>
+        <strong>Traces (OpenTelemetry):</strong> Instrument services with OTel SDK, export to Jaeger or Tempo. Critical for distributed tracing across booking → matching → payment → notification chain.<br><br>
+        Link all three via trace IDs in logs and metrics labels. Create runbooks for top-5 alert categories. This is exactly the stack I built at TechPrysm for AI workloads, adapted to ride-hailing business metrics.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB 3 — GAPS & BRIDGES
+  ══════════════════════════════════════════ -->
+  <div id="tab-gaps" class="tab-panel">
+    <h2><span class="icon">⚠️</span> Gap Analysis &amp; How to Bridge Each One</h2>
+
+    <div class="grid-2">
+      <div class="card card-red mb-16">
+        <h3 style="color:var(--red)">🔴 MongoDB — Not on Resume</h3>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Jeeny JD lists MongoDB. You have deep PostgreSQL with pgvector — a superset in many ways, but different data model.</p>
+        <div class="info-box warn">
+          <strong>Bridge Script:</strong> "I haven't used MongoDB extensively in production, though I understand the document model well — I've worked deeply with PostgreSQL including advanced features like pgvector, JSON columns, and complex query optimization. I'm comfortable picking up MongoDB quickly; the operational concepts — replication, sharding, index strategies — are fundamentally similar. What's the specific MongoDB use case at Jeeny?"
+        </div>
+        <div class="divider"></div>
+        <h3 style="font-size:13px;margin-top:8px">Quick Knowledge Bullets to Know:</h3>
+        <ul class="styled">
+          <li>MongoDB replica sets: primary + 2 secondaries, automatic failover via election</li>
+          <li>Sharding: shard key selection is critical — range vs hash sharding</li>
+          <li>Indexes: compound, text, TTL indexes; <code>explain()</code> for query analysis</li>
+          <li>Atlas: managed, built-in backups, Atlas Search (Lucene), auto-scaling tiers</li>
+          <li>Transactions: multi-document ACID since v4.0 (unlike early Mongo)</li>
+        </ul>
+      </div>
+
+      <div class="card card-red mb-16">
+        <h3 style="color:var(--red)">🔴 ELK Stack — Have Prometheus/Grafana/OTel instead</h3>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Jeeny lists ELK for logging. You have a strong Prometheus/Grafana/OpenTelemetry stack.</p>
+        <div class="info-box warn">
+          <strong>Bridge Script:</strong> "My primary logging stack has been OpenTelemetry with structured JSON logs and Grafana Loki — functionally equivalent to ELK for most use cases. I've designed ELK architectures on paper and understand the Elastic stack conceptually. Happy to run ELK in production — the ingestion pipeline (Fluent Bit → Logstash → Elasticsearch → Kibana) is operationally straightforward once you understand index lifecycle management."
+        </div>
+        <div class="divider"></div>
+        <h3 style="font-size:13px;margin-top:8px">Key ELK Points to Drop:</h3>
+        <ul class="styled">
+          <li>Fluent Bit (lightweight) or Logstash (transform-heavy) as shippers</li>
+          <li>Index Lifecycle Management (ILM): hot → warm → cold → delete tiers</li>
+          <li>Kibana: KQL query language, dashboards, alerting</li>
+          <li>ES security: TLS between nodes, role-based access, field-level security</li>
+          <li>Cost: Loki is far cheaper at scale; worth proposing if they haven't considered it</li>
+        </ul>
+      </div>
+
+      <div class="card card-amber mb-16">
+        <h3 style="color:var(--amber)">⚡ IDP / Backstage — Reframe ServeLLM</h3>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Formal IDP tools like Backstage or Port aren't on your resume. But ServeLLM is literally an internal developer platform.</p>
+        <div class="info-box warn">
+          <strong>Bridge Script:</strong> "ServeLLM is effectively an IDP — multi-tenant self-service infrastructure, standardized API templates, automated provisioning via Ansible, per-org usage dashboards, and a one-command deployment workflow. I haven't used Backstage specifically, but I'm familiar with its architecture: a software catalog backed by YAML descriptors, plugin system, and TechDocs integration. I can implement or extend it — the concepts directly overlap with what I've built."
+        </div>
+      </div>
+
+      <div class="card card-amber mb-16">
+        <h3 style="color:var(--amber)">⚡ AWS vs GCP — Emphasis Shift</h3>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Jeeny is AWS-focused (EKS, EC2, RDS, S3, IAM). Your resume leans GCP (Vertex AI, GKE, Cloud Run) but has AWS too.</p>
+        <div class="info-box warn">
+          <strong>Bridge Script:</strong> "I've provisioned AWS EKS clusters with Terraform, managed EC2 fleets, and used S3 with Terraform backends. My primary cloud depth is GCP, but Kubernetes abstracts most of the operational complexity — an EKS cluster and a GKE cluster are operated nearly identically once you're past provisioning. AWS-specific gaps like RDS parameter groups or EKS managed node groups are things I can close within weeks."
+        </div>
+        <div class="divider"></div>
+        <h3 style="font-size:13px;margin-top:8px">AWS Specifics to Know:</h3>
+        <ul class="styled">
+          <li><strong>EKS:</strong> Managed control plane, node groups (managed vs self-managed), Fargate profiles</li>
+          <li><strong>IAM + IRSA:</strong> OIDC provider → ServiceAccount annotation → pod-level IAM role (no static keys)</li>
+          <li><strong>RDS:</strong> Multi-AZ for HA, read replicas, parameter groups, automated backups</li>
+          <li><strong>ALB Ingress Controller:</strong> AWS-specific, replaces NGINX Ingress in EKS patterns</li>
+          <li><strong>ECR:</strong> Private container registry, image scanning, lifecycle policies</li>
+        </ul>
+      </div>
+
+      <div class="card card-amber">
+        <h3 style="color:var(--amber)">⚡ Years of Experience (4 vs 5+ required)</h3>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">JD says 5+ years total. You have ~4 years continuous production.</p>
+        <div class="info-box warn">
+          <strong>Bridge Script:</strong> "My 4 years have been fully production-grade, not tutorial work — I've owned end-to-end platform delivery: architecting, deploying, operating, and on-call for multi-tenant systems with real SLAs. The quality and complexity of what I've shipped likely maps to more years of traditional DevOps exposure."
+        </div>
+        <p style="font-size:12px;color:var(--text2);margin-top:10px">Note: If pressed, don't inflate the number. The interviewers will have your resume — own it confidently and let the work speak.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB 4 — TECHNICAL DEEP DIVES
+  ══════════════════════════════════════════ -->
+  <div id="tab-technical" class="tab-panel">
+    <h2><span class="icon">⚙️</span> Technical Deep-Dives to Refresh</h2>
+
+    <div class="grid-2 mb-24">
+      <div>
+        <div class="section-label">Kubernetes Scenarios (likely whiteboard)</div>
+        <div class="card mb-16">
+          <h3>Pod stuck in <code>CrashLoopBackOff</code></h3>
+          <pre><span class="kw">kubectl</span> describe pod &lt;name&gt; <span class="cmt"># → check Events section</span>
+<span class="kw">kubectl</span> logs &lt;pod&gt; --previous  <span class="cmt"># last container logs</span>
+<span class="kw">kubectl</span> get events --sort-by=.lastTimestamp
+<span class="cmt"># Root causes: OOMKilled (raise limits), bad entrypoint,
+# missing env/secret, failed readinessProbe, PVC not bound</span></pre>
+        </div>
+
+        <div class="card mb-16">
+          <h3>Deployment rollout &amp; rollback</h3>
+          <pre><span class="kw">kubectl</span> rollout status deployment/api
+<span class="kw">kubectl</span> rollout history deployment/api
+<span class="kw">kubectl</span> rollout undo deployment/api --to-revision=2
+<span class="cmt"># Strategy: RollingUpdate with maxUnavailable:0
+# for zero-downtime (critical for ride-hailing API)</span></pre>
+        </div>
+
+        <div class="card">
+          <h3>Debug network policy blocking traffic</h3>
+          <pre><span class="kw">kubectl</span> exec -it debug-pod -- curl http://svc:8080
+<span class="cmt"># If blocked: check NetworkPolicy selectors</span>
+<span class="kw">kubectl</span> get networkpolicy -A
+<span class="cmt"># Cilium / Calico: check policy trace
+# Egress policy must explicitly allow external + DNS</span></pre>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">Terraform Patterns</div>
+        <div class="card mb-16">
+          <h3>State management &amp; locking</h3>
+          <pre><span class="cmt"># backend.tf</span>
+<span class="kw">terraform</span> {
+  backend <span class="val">"s3"</span> {
+    bucket         = <span class="val">"jeeny-tf-state"</span>
+    key            = <span class="val">"prod/eks/terraform.tfstate"</span>
+    region         = <span class="val">"ap-southeast-1"</span>
+    dynamodb_table = <span class="val">"jeeny-tf-lock"</span>
+    encrypt        = <span class="kw">true</span>
+  }
+}</pre>
+        </div>
+
+        <div class="card mb-16">
+          <h3>IRSA for pod-level AWS access</h3>
+          <pre><span class="cmt"># No static AWS keys in pods — use IRSA</span>
+<span class="kw">module</span> <span class="val">"irsa"</span> {
+  source  = <span class="val">"terraform-aws-modules/iam/aws//iam-role-for-service-accounts-eks"</span>
+  oidc_providers = {
+    main = {
+      oidc_issuer_url  = module.eks.oidc_issuer_url
+      namespace_service_accounts = [<span class="val">"app:api-sa"</span>]
+    }
+  }
+}</pre>
+        </div>
+
+        <div class="card">
+          <h3>Targeted destroy / import</h3>
+          <pre><span class="kw">terraform</span> plan -target=module.eks.aws_eks_cluster.this
+<span class="kw">terraform</span> import aws_s3_bucket.assets jeeny-assets-prod
+<span class="cmt"># Use -target sparingly; prefer module isolation</span></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h2><span class="icon">🔒</span> DevSecOps Quick Reference</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Secrets Management</h3>
+        <ul class="styled">
+          <li>AWS Secrets Manager / Parameter Store via External Secrets Operator (ESO)</li>
+          <li>HashiCorp Vault with Vault Agent sidecar injection</li>
+          <li>Never: secrets in env vars, Dockerfiles, or Git</li>
+          <li>Rotation: automate via Lambda + Secrets Manager rotation function</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>CI Security Gates</h3>
+        <ul class="styled">
+          <li><code>trivy</code> — container image CVE scanning</li>
+          <li><code>checkov</code> — Terraform misconfig (CIS benchmarks)</li>
+          <li><code>gitleaks</code> — pre-commit secret scanning</li>
+          <li><code>kube-bench</code> — CIS Kubernetes benchmark</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Kubernetes RBAC Pattern</h3>
+        <pre style="font-size:11px"><span class="kw">kind</span>: Role
+rules:
+- apiGroups: [<span class="val">""</span>]
+  resources: [<span class="val">"pods"</span>]
+  verbs: [<span class="val">"get"</span>,<span class="val">"list"</span>]
+<span class="cmt">---
+# Bind to service account only
+# Never use cluster-admin broadly</span></pre>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h2><span class="icon">📈</span> SLO / SLI / Error Budget — Be Ready for This</h2>
+    <div class="card card-blue">
+      <div class="grid-2">
+        <div>
+          <h3>Key Definitions</h3>
+          <ul class="styled">
+            <li><strong>SLI</strong> — Measurement: "99.2% of trip dispatch API requests succeeded in &lt;200ms over last 30 days"</li>
+            <li><strong>SLO</strong> — Target: "99.5% availability, p99 latency &lt;500ms"</li>
+            <li><strong>SLA</strong> — Contract: commitment to Jeeny's driver/passenger app users</li>
+            <li><strong>Error Budget</strong> — 100% - SLO = allowed failure room. Burn rate alerts when exhausted 2× faster than budget allows.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Prometheus SLO Recording Rule</h3>
+          <pre><span class="cmt"># 5-min burn rate for 30-day SLO</span>
+<span class="kw">- record:</span> <span class="val">job:slo_error_rate5m</span>
+  <span class="kw">expr:</span> |
+    sum(rate(
+      http_requests_total{status=~"5.."}[5m]
+    )) /
+    sum(rate(
+      http_requests_total[5m]
+    ))</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB 5 — ASK THE INTERVIEWER
+  ══════════════════════════════════════════ -->
+  <div id="tab-ask" class="tab-panel">
+    <h2><span class="icon">💬</span> Questions to Ask Mansoor Rehman</h2>
+
+    <div class="info-box tip mb-24">
+      <strong style="color:var(--green)">Strategy:</strong> Ask 3–4 questions max. Lead with platform architecture, then team/process. Avoid salary/benefits in round 1. These questions signal you're thinking like a senior platform owner, not a ticket executor.
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="section-label">Platform Architecture</div>
+        <div class="card mb-16">
+          <h3>🏗️ Current IDP Maturity</h3>
+          <p style="font-size:13px;color:var(--text);margin-top:6px">"Where is Jeeny's Internal Developer Platform today — are teams provisioning infra through self-service already, or is this greenfield? What's the biggest friction point developers face today?"</p>
+          <div class="info-box" style="margin-top:10px;font-size:12px">
+            <em>Listen for:</em> Backstage adoption, GitOps maturity, how manual the current process is. Calibrate your pitch accordingly.
+          </div>
+        </div>
+
+        <div class="card mb-16">
+          <h3>⚡ Multi-Region Architecture</h3>
+          <p style="font-size:13px;color:var(--text);margin-top:6px">"Jeeny operates in Saudi Arabia, Jordan, and Pakistan. Is the infrastructure truly multi-region on AWS, or is it centralized with geo-distributed edge? How do you handle data residency requirements in KSA?"</p>
+        </div>
+
+        <div class="card">
+          <h3>📊 Observability Gaps</h3>
+          <p style="font-size:13px;color:var(--text);margin-top:6px">"What's the current state of your observability stack? Are teams using Prometheus + Grafana, or primarily ELK? Are there SLOs defined per service or is that something this role would establish?"</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">Team &amp; Process</div>
+        <div class="card mb-16">
+          <h3>👥 Platform Team Structure</h3>
+          <p style="font-size:13px;color:var(--text);margin-top:6px">"How is the Platform team structured relative to the product engineering squads? Is the model embedded SRE, centralized platform team, or something hybrid? Who is this role's primary customer?"</p>
+        </div>
+
+        <div class="card mb-16">
+          <h3>🔥 Biggest Current Pain</h3>
+          <p style="font-size:13px;color:var(--text);margin-top:6px">"What's the problem the platform team is most frustrated with today — is it deployment velocity, reliability incidents, cost overruns, or developer experience? What would success look like in the first 90 days?"</p>
+          <div class="info-box" style="margin-top:10px;font-size:12px">
+            <em>This is the most important question.</em> The answer tells you what they'll judge you on.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🚀 On-Call &amp; Incident Ownership</h3>
+          <p style="font-size:13px;color:var(--text);margin-top:6px">"How is on-call rotation structured for platform infra? Does the platform team own production incidents, or are product teams responsible for their own services?"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB 6 — DAY-OF LOGISTICS
+  ══════════════════════════════════════════ -->
+  <div id="tab-logistics" class="tab-panel">
+    <h2><span class="icon">🗺️</span> Day-Of Checklist — April 27, 2026</h2>
+
+    <div class="grid-2">
+      <div>
+        <div class="section-label">Before You Leave</div>
+        <div class="card mb-16">
+          <div class="checklist-item">
+            <span class="check-icon">📍</span>
+            <span><strong>Location:</strong> 739, Block G4, Phase 2, Johar Town, Lahore. Leave by 3:15 PM — Gulberg 3 to Johar Town can be 20–35 min in afternoon traffic.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">👔</span>
+            <span>Business casual or smart casual. Jeeny is a tech company — overdressing is fine, underdressing is risky.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">📄</span>
+            <span>2–3 printed copies of your resume. Bring a notebook + pen for any technical questions you want to note down.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">💻</span>
+            <span>Laptop charged — they may ask you to demo or code. Have ServeLLM architecture diagram ready to pull up.</span>
+          </div>
+        </div>
+
+        <div class="section-label">Interview Room Mindset</div>
+        <div class="card">
+          <div class="checklist-item">
+            <span class="check-icon">⚡</span>
+            <span><strong>Lead with ServeLLM</strong> — it's your IDP story, your HA story, your cost optimization story, and your DevSecOps story. One project, many angles.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">🔢</span>
+            <span>Every answer needs a metric: 35%, 60%, 70%, 99.9%, &lt;100ms, 1000 concurrent users. Numbers = credibility.</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">🤝</span>
+            <span>For gaps (MongoDB, ELK): don't bluff. Say "I haven't used it in production, but here's my equivalent experience and my ramp-up plan."</span>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">🎯</span>
+            <span>Jeeny context: ride-hailing = high concurrency, latency-sensitive, event-driven. Frame every answer in that context.</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">30-Minute Rapid Review</div>
+        <div class="card mb-16">
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot">1</div>
+              <div class="tl-body">
+                <div class="tl-title">Reread your ServeLLM bullet points</div>
+                <div class="tl-text">Know your numbers cold: 35%, 60%, 70%, 90%, 99%, &lt;50ms, 200 connections, 1000 users, 10M doc chunks</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">2</div>
+              <div class="tl-body">
+                <div class="tl-title">Your 90-second opening pitch</div>
+                <div class="tl-text">Practice out loud: "I'm a Platform/DevOps engineer who builds self-service AI infrastructure…"</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">3</div>
+              <div class="tl-body">
+                <div class="tl-title">MongoDB / ELK bridge scripts</div>
+                <div class="tl-text">Read the gap tab once more — internalize the exact phrasing so it sounds natural, not rehearsed</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">4</div>
+              <div class="tl-body">
+                <div class="tl-title">Your 3 questions for Mansoor</div>
+                <div class="tl-text">IDP maturity + biggest pain point + 90-day success definition</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-label">Salary Context</div>
+        <div class="card card-amber">
+          <h3>If Salary Comes Up (Round 1)</h3>
+          <p style="font-size:13px;color:var(--text);margin-top:8px">Jeeny offers "Market Competitive Salary" + Dollar Adjustment Allowance. Platform Engineer in Lahore with 4+ years at a KSA/Jordan-serving tech company typically ranges <strong style="color:var(--amber)">PKR 250K–400K+/month</strong> depending on scope. Dollar allowance is meaningful — probe on the mechanism (peg rate, review frequency).</p>
+          <div class="info-box warn" style="margin-top:10px">
+            Defer detailed negotiation to round 2. If asked for a number: "I'm expecting market-competitive for the scope of this role — what's the budgeted band for this position?"
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="info-box tip">
+      <strong style="color:var(--green)">🏆 Your Strongest Talking Points in Priority Order:</strong><br>
+      1. ServeLLM as an IDP — self-service, multi-tenant, production-grade, one-command deploy &nbsp;|&nbsp;
+      2. Prometheus + Grafana observability with AI/infra SLAs &nbsp;|&nbsp;
+      3. Terraform + Ansible + GitHub Actions full GitOps pipeline &nbsp;|&nbsp;
+      4. 5-tier RBAC + JWT + API key security (maps directly to DevSecOps requirement) &nbsp;|&nbsp;
+      5. Cost optimization track record with hard numbers
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div class="container">
+    Interview Brief · Daud Farzand × Jeeny Platform Engineer · Generated April 27, 2026
+  </div>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function toggleQA(el) {
+    el.parentElement.classList.toggle('open');
+  }
+
+  // Animate bars on load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.bar-fill').forEach(bar => {
+        const w = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => { bar.style.width = w; }, 100);
+      });
+    }, 300);
+  });
+</script>
+</body>
+</html>

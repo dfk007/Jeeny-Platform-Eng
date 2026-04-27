@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Platform Engineering IDP and Self-Service Architecture</title>
+  <desc id="desc">Infographic showing developer portal, templates, policy guardrails, deployment platform, observability, and shared services in a platform engineering internal developer platform.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060b14"/><stop offset="1" stop-color="#0c1221"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#121a2b"/><stop offset="1" stop-color="#0d1524"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#20304a" stroke-width="1" opacity="0.35"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#5bb4ff"/></marker>
+  </defs>
+  <rect width="1280" height="900" fill="url(#bg)"/>
+  <rect width="1280" height="900" fill="url(#grid)" opacity="0.55"/>
+  <text x="64" y="74" fill="#eef2f8" font-family="Arial, sans-serif" font-size="38" font-weight="800">Platform Engineering: IDP and Self-Service Architecture</text>
+  <text x="64" y="112" fill="#7a8fa8" font-family="Arial, sans-serif" font-size="18">The leverage story: standardize golden paths so product teams ship without opening infrastructure tickets.</text>
+
+  <rect x="56" y="150" width="280" height="620" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="86" y="194" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">1. Developer Entry Point</text>
+  <rect x="92" y="250" width="204" height="88" rx="16" fill="#102235" stroke="#5bb4ff"/>
+  <text x="143" y="288" fill="#eef2f8" font-family="Arial" font-size="20" font-weight="700">Portal</text>
+  <text x="118" y="315" fill="#7a8fa8" font-family="Arial" font-size="14">Backstage or internal console</text>
+  <rect x="92" y="372" width="204" height="88" rx="16" fill="#102235" stroke="#3dffa0"/>
+  <text x="119" y="411" fill="#eef2f8" font-family="Arial" font-size="20" font-weight="700">Templates</text>
+  <text x="112" y="438" fill="#7a8fa8" font-family="Arial" font-size="14">Service scaffolds and defaults</text>
+  <rect x="92" y="494" width="204" height="88" rx="16" fill="#102235" stroke="#f0a500"/>
+  <text x="127" y="533" fill="#eef2f8" font-family="Arial" font-size="20" font-weight="700">Guardrails</text>
+  <text x="116" y="560" fill="#7a8fa8" font-family="Arial" font-size="14">Policy, RBAC, secrets, budgets</text>
+  <text x="86" y="655" fill="#3dffa0" font-family="Arial" font-size="16" font-weight="700">Outcome</text>
+  <text x="86" y="683" fill="#c8d4e3" font-family="Arial" font-size="15">New service creation becomes a guided workflow, not tribal knowledge.</text>
+
+  <rect x="372" y="150" width="522" height="620" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="404" y="194" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">2. Golden Path Control Plane</text>
+  <rect x="444" y="262" width="146" height="88" rx="16" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="630" y="262" width="188" height="88" rx="16" fill="#102235" stroke="#3dffa0"/>
+  <rect x="444" y="414" width="146" height="88" rx="16" fill="#102235" stroke="#f0a500"/>
+  <rect x="630" y="414" width="188" height="88" rx="16" fill="#102235" stroke="#ff5f5f"/>
+  <text x="483" y="313" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">CI/CD</text>
+  <text x="667" y="301" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">GitOps Deploy</text>
+  <text x="664" y="326" fill="#7a8fa8" font-family="Arial" font-size="13">ArgoCD or Actions driven release</text>
+  <text x="472" y="466" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">IaC</text>
+  <text x="677" y="454" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Policy Checks</text>
+  <text x="662" y="479" fill="#7a8fa8" font-family="Arial" font-size="13">RBAC, cost, image, secret validation</text>
+  <line x1="336" y1="294" x2="444" y2="306" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="336" y1="416" x2="444" y2="458" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="590" y1="306" x2="630" y2="306" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="590" y1="458" x2="630" y2="458" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="406" y="634" fill="#f0a500" font-family="Arial" font-size="16" font-weight="700">Golden path rule</text>
+  <text x="406" y="662" fill="#c8d4e3" font-family="Arial" font-size="15">The platform should make the safe path the fastest path.</text>
+
+  <rect x="930" y="150" width="294" height="620" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="960" y="194" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">3. Shared Runtime</text>
+  <rect x="970" y="252" width="214" height="80" rx="16" fill="#102235" stroke="#3dffa0"/>
+  <rect x="970" y="360" width="214" height="80" rx="16" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="970" y="468" width="214" height="80" rx="16" fill="#102235" stroke="#f0a500"/>
+  <rect x="970" y="576" width="214" height="80" rx="16" fill="#102235" stroke="#ff5f5f"/>
+  <text x="1015" y="300" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Kubernetes</text>
+  <text x="1037" y="408" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Observability</text>
+  <text x="1038" y="516" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Secrets</text>
+  <text x="1007" y="624" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Cost Controls</text>
+
+  <rect x="74" y="808" width="1130" height="52" rx="16" fill="#08111d" stroke="#31415f"/>
+  <text x="96" y="841" fill="#eef2f8" font-family="Arial" font-size="17" font-weight="700">Interview framing:</text>
+  <text x="252" y="841" fill="#c8d4e3" font-family="Arial" font-size="17">Lead with ServeLLM as the proof that you already built a self-service platform with guardrails, automation, and tenant isolation.</text>
+</svg>

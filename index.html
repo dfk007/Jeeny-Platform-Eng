@@ -160,6 +160,78 @@
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   @media(max-width:768px) { .grid-2,.grid-3 { grid-template-columns: 1fr; } }
 
+  .visual-grid { display: grid; gap: 24px; }
+  .visual-card {
+    background: linear-gradient(180deg, rgba(15,18,24,0.96), rgba(10,12,16,0.98));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 18px 42px rgba(0,0,0,0.22);
+  }
+  .visual-card h3 { margin-bottom: 8px; }
+  .visual-card p { font-size: 13px; color: var(--text2); margin-bottom: 14px; }
+  .visual-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    background: #07101b;
+    border: 1px solid rgba(91,180,255,0.16);
+  }
+  .visual-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .visual-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--blue);
+    border: 1px solid rgba(91,180,255,0.24);
+    background: rgba(91,180,255,0.08);
+    border-radius: 999px;
+    padding: 4px 8px;
+  }
+  .visual-lead {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+  .visual-lead-card {
+    background: linear-gradient(135deg, rgba(21,26,34,0.98), rgba(10,12,16,0.98));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+    min-height: 100%;
+  }
+  .visual-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .visual-stat {
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .visual-stat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--amber2);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .visual-stat-label { font-size: 12px; color: var(--text2); }
+  @media(max-width:900px) {
+    .visual-lead { grid-template-columns: 1fr; }
+  }
+
   /* ─── CARDS ─── */
   .card {
     background: var(--bg2);
@@ -369,6 +441,9 @@
     text-transform: uppercase; letter-spacing: 0.12em;
     margin-bottom: 14px;
   }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
 </style>
 </head>
 <body>
@@ -404,6 +479,7 @@
     <button class="tab-btn" onclick="showTab('questions')">🎯 Q&amp;A Prep</button>
     <button class="tab-btn" onclick="showTab('gaps')">⚠️ Gaps &amp; Bridges</button>
     <button class="tab-btn" onclick="showTab('technical')">⚙️ Technical Deep-Dives</button>
+    <button class="tab-btn" onclick="showTab('visuals')">◈ System Visuals</button>
     <button class="tab-btn" onclick="showTab('ask')">💬 Ask the Interviewer</button>
     <button class="tab-btn" onclick="showTab('logistics')">🗺️ Day-Of Checklist</button>
     <button class="tab-btn" onclick="showTab('jd')">📋 Job Description</button>
@@ -1008,7 +1084,110 @@ rules:
   </div>
 
   <!-- ══════════════════════════════════════════
-       TAB 5 — ASK THE INTERVIEWER
+       TAB 5 — SYSTEM VISUALS
+  ══════════════════════════════════════════ -->
+  <div id="tab-visuals" class="tab-panel">
+    <h2><span class="icon">◈</span> Platform Engineering Visual Brief</h2>
+
+    <div class="visual-lead">
+      <div class="visual-lead-card">
+        <div class="section-label">Visual Framing</div>
+        <h3 style="font-size:22px;line-height:1.2;margin-bottom:12px">Show the interviewer that you think in systems, not isolated tools.</h3>
+        <p style="font-size:14px;color:var(--text);margin-bottom:12px">
+          This tab turns your strongest platform narratives into fast visual anchors: self-service platform design, GitOps release discipline, observability ownership, tenant isolation, and cost-aware scaling. Use these as mental diagrams during the onsite conversation.
+        </p>
+        <div class="info-box tip" style="margin:0">
+          <strong style="color:var(--green)">Best use:</strong> glance at one panel before each answer, then explain the system boundary, the guardrail, and the measurable outcome.
+        </div>
+      </div>
+
+      <div class="visual-lead-card">
+        <div class="section-label">Why This Helps</div>
+        <div class="visual-stat-grid">
+          <div class="visual-stat">
+            <div class="visual-stat-num">5</div>
+            <div class="visual-stat-label">high-value platform stories distilled into diagrams</div>
+          </div>
+          <div class="visual-stat">
+            <div class="visual-stat-num">1:1</div>
+            <div class="visual-stat-label">mapping from Jeeny requirements to your strongest evidence</div>
+          </div>
+          <div class="visual-stat">
+            <div class="visual-stat-num">IDP</div>
+            <div class="visual-stat-label">self-service, guardrails, golden paths, shared runtime</div>
+          </div>
+          <div class="visual-stat">
+            <div class="visual-stat-num">SLO</div>
+            <div class="visual-stat-label">tooling translated into reliability ownership and action</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-grid">
+      <article class="visual-card">
+        <h3>1. IDP and Self-Service Architecture</h3>
+        <p>Portal to guardrails to runtime. This is the strongest visual to anchor your ServeLLM story as an internal developer platform.</p>
+        <img class="visual-img" src="platform-visuals/01-idp-self-service-architecture.svg" alt="Platform engineering internal developer platform and self-service architecture visual">
+        <div class="visual-meta">
+          <span class="visual-tag">IDP</span>
+          <span class="visual-tag">Developer Experience</span>
+          <span class="visual-tag">Golden Path</span>
+        </div>
+      </article>
+
+      <article class="visual-card">
+        <h3>2. CI/CD and GitOps Release Flow</h3>
+        <p>Use this to explain how safe delivery is standardized: checks before merge, Git as source of truth, and rollback through versioned manifests.</p>
+        <img class="visual-img" src="platform-visuals/02-gitops-cicd-release-flow.svg" alt="Platform engineering CI CD and GitOps release flow visual">
+        <div class="visual-meta">
+          <span class="visual-tag">GitOps</span>
+          <span class="visual-tag">CI/CD</span>
+          <span class="visual-tag">Release Safety</span>
+        </div>
+      </article>
+
+      <article class="visual-card">
+        <h3>3. Observability and SLO Control Tower</h3>
+        <p>Frame monitoring as a closed loop: signals, SLOs, alerts, ownership, and post-incident learning.</p>
+        <img class="visual-img" src="platform-visuals/03-observability-slo-control-tower.svg" alt="Platform engineering observability and SLO control tower visual">
+        <div class="visual-meta">
+          <span class="visual-tag">Prometheus</span>
+          <span class="visual-tag">Grafana</span>
+          <span class="visual-tag">Reliability</span>
+        </div>
+      </article>
+
+      <article class="visual-card">
+        <h3>4. Multi-Tenant Security and Isolation</h3>
+        <p>Ideal for talking through RBAC, namespaces, network policies, and application-level isolation without sounding generic.</p>
+        <img class="visual-img" src="platform-visuals/04-multi-tenant-security-isolation.svg" alt="Platform engineering multi-tenant security and isolation visual">
+        <div class="visual-meta">
+          <span class="visual-tag">RBAC</span>
+          <span class="visual-tag">Isolation</span>
+          <span class="visual-tag">DevSecOps</span>
+        </div>
+      </article>
+
+      <article class="visual-card">
+        <h3>5. Cost and Scaling Playbook</h3>
+        <p>Use this when asked about cloud optimization. It shows the difference between reactive cost-cutting and data-driven platform efficiency.</p>
+        <img class="visual-img" src="platform-visuals/05-cost-and-scaling-playbook.svg" alt="Platform engineering cost and scaling playbook visual">
+        <div class="visual-meta">
+          <span class="visual-tag">Autoscaling</span>
+          <span class="visual-tag">FinOps</span>
+          <span class="visual-tag">Capacity</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="info-box" style="margin-top:24px">
+      <strong style="color:var(--blue)">Visual language note:</strong> These platform diagrams are styled after the reference infographic pattern in <code>opencode-imgs-gpt/</code>, but rewritten around Jeeny-relevant platform engineering themes so the tab supports your interview narrative directly.
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB 6 — ASK THE INTERVIEWER
   ══════════════════════════════════════════ -->
   <div id="tab-ask" class="tab-panel">
     <h2><span class="icon">💬</span> Questions to Ask Mansoor Rehman</h2>
@@ -1063,7 +1242,7 @@ rules:
   </div>
 
   <!-- ══════════════════════════════════════════
-       TAB 6 — DAY-OF LOGISTICS
+       TAB 7 — DAY-OF LOGISTICS
   ══════════════════════════════════════════ -->
   <div id="tab-logistics" class="tab-panel">
     <h2><span class="icon">🗺️</span> Day-Of Checklist — April 27, 2026</h2>
@@ -1170,8 +1349,8 @@ rules:
 
 
   <!-- ══════════════════════════════════════════
-       TAB 7 — JOB DESCRIPTION
-  ══════════════════════════════════════════ -->
+       TAB 8 — JOB DESCRIPTION
+   ══════════════════════════════════════════ -->
   <div id="tab-jd" class="tab-panel">
     <h2><span class="icon">📋</span> Job Description — Jeeny Platform Engineer</h2>
 

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Platform Engineering CI/CD and GitOps Release Flow</title>
+  <desc id="desc">Infographic showing commit to production flow with CI checks, artifact build, GitOps promotion, and rollback discipline.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06101d"/><stop offset="1" stop-color="#0c1321"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#121a2b"/><stop offset="1" stop-color="#0d1524"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#20304a" stroke-width="1" opacity="0.35"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#5bb4ff"/></marker>
+  </defs>
+  <rect width="1280" height="900" fill="url(#bg)"/>
+  <rect width="1280" height="900" fill="url(#grid)" opacity="0.55"/>
+  <text x="64" y="74" fill="#eef2f8" font-family="Arial" font-size="38" font-weight="800">Platform Engineering: CI/CD and GitOps Release Flow</text>
+  <text x="64" y="112" fill="#7a8fa8" font-family="Arial" font-size="18">A healthy platform release path is opinionated, observable, and reversible.</text>
+
+  <rect x="54" y="164" width="1172" height="290" rx="26" fill="url(#card)" stroke="#24314a"/>
+  <text x="84" y="208" fill="#5bb4ff" font-family="Arial" font-size="22" font-weight="700">Release Conveyor</text>
+  <rect x="92" y="258" width="150" height="110" rx="18" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="280" y="258" width="150" height="110" rx="18" fill="#102235" stroke="#3dffa0"/>
+  <rect x="468" y="258" width="150" height="110" rx="18" fill="#102235" stroke="#f0a500"/>
+  <rect x="656" y="258" width="150" height="110" rx="18" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="844" y="258" width="150" height="110" rx="18" fill="#102235" stroke="#3dffa0"/>
+  <rect x="1032" y="258" width="150" height="110" rx="18" fill="#102235" stroke="#ff5f5f"/>
+  <text x="134" y="306" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Commit</text>
+  <text x="113" y="331" fill="#7a8fa8" font-family="Arial" font-size="13">PR opened with infra and app changes</text>
+  <text x="325" y="306" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">CI Gate</text>
+  <text x="298" y="331" fill="#7a8fa8" font-family="Arial" font-size="13">Tests, lint, image scan, policy check</text>
+  <text x="495" y="306" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Build</text>
+  <text x="498" y="331" fill="#7a8fa8" font-family="Arial" font-size="13">Versioned artifact and SBOM</text>
+  <text x="682" y="306" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Manifest</text>
+  <text x="687" y="331" fill="#7a8fa8" font-family="Arial" font-size="13">Promote image tag into env repo</text>
+  <text x="874" y="306" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Sync</text>
+  <text x="855" y="331" fill="#7a8fa8" font-family="Arial" font-size="13">ArgoCD applies desired state</text>
+  <text x="1059" y="306" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Rollback</text>
+  <text x="1052" y="331" fill="#7a8fa8" font-family="Arial" font-size="13">Revert manifest, not manual kubectl</text>
+  <line x1="242" y1="313" x2="280" y2="313" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="430" y1="313" x2="468" y2="313" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="618" y1="313" x2="656" y2="313" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="806" y1="313" x2="844" y2="313" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="994" y1="313" x2="1032" y2="313" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="54" y="494" width="564" height="286" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="86" y="538" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">What Makes the Pipeline Senior-Level</text>
+  <text x="90" y="592" fill="#3dffa0" font-family="Arial" font-size="18" font-weight="700">1.</text>
+  <text x="124" y="592" fill="#c8d4e3" font-family="Arial" font-size="16">Everything meaningful is checked before merge: tests, security, IaC, and migration safety.</text>
+  <text x="90" y="640" fill="#3dffa0" font-family="Arial" font-size="18" font-weight="700">2.</text>
+  <text x="124" y="640" fill="#c8d4e3" font-family="Arial" font-size="16">Deployments are pull-based from Git, so cluster state is auditable and drift is visible.</text>
+  <text x="90" y="688" fill="#3dffa0" font-family="Arial" font-size="18" font-weight="700">3.</text>
+  <text x="124" y="688" fill="#c8d4e3" font-family="Arial" font-size="16">Rollback is a Git operation, not a midnight shell session.</text>
+  <text x="90" y="736" fill="#3dffa0" font-family="Arial" font-size="18" font-weight="700">4.</text>
+  <text x="124" y="736" fill="#c8d4e3" font-family="Arial" font-size="16">Promotion across dev, staging, and prod is explicit and measurable.</text>
+
+  <rect x="654" y="494" width="572" height="286" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="686" y="538" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">Interview Soundbites</text>
+  <rect x="690" y="578" width="500" height="64" rx="14" fill="#08111d" stroke="#31415f"/>
+  <rect x="690" y="658" width="500" height="64" rx="14" fill="#08111d" stroke="#31415f"/>
+  <text x="714" y="606" fill="#eef2f8" font-family="Arial" font-size="16" font-weight="700">Standardization</text>
+  <text x="834" y="606" fill="#c8d4e3" font-family="Arial" font-size="15">Reusable workflows across all services</text>
+  <text x="714" y="686" fill="#eef2f8" font-family="Arial" font-size="16" font-weight="700">Risk Reduction</text>
+  <text x="844" y="686" fill="#c8d4e3" font-family="Arial" font-size="15">Safer deploys, quicker MTTR, cleaner audit trail</text>
+
+  <rect x="74" y="816" width="1130" height="44" rx="14" fill="#08111d" stroke="#31415f"/>
+  <text x="96" y="844" fill="#eef2f8" font-family="Arial" font-size="17" font-weight="700">Best framing:</text>
+  <text x="216" y="844" fill="#c8d4e3" font-family="Arial" font-size="17">Talk about speed and safety together. Platform engineering is not faster deploys alone; it is faster deploys with fewer surprises.</text>
+</svg>

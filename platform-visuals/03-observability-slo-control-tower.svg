@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Platform Engineering Observability and SLO Control Tower</title>
+  <desc id="desc">Infographic showing metrics, logs, traces, SLO burn rate, alert routing, and service ownership in a platform observability stack.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060d18"/><stop offset="1" stop-color="#0c1221"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#121a2b"/><stop offset="1" stop-color="#0d1524"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#20304a" stroke-width="1" opacity="0.35"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#5bb4ff"/></marker>
+  </defs>
+  <rect width="1280" height="900" fill="url(#bg)"/>
+  <rect width="1280" height="900" fill="url(#grid)" opacity="0.55"/>
+  <text x="64" y="74" fill="#eef2f8" font-family="Arial" font-size="38" font-weight="800">Platform Engineering: Observability and SLO Control Tower</text>
+  <text x="64" y="112" fill="#7a8fa8" font-family="Arial" font-size="18">Monitoring becomes platform value when signals are tied to ownership, reliability targets, and action.</text>
+
+  <rect x="58" y="156" width="354" height="622" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="90" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">1. Signal Sources</text>
+  <rect x="98" y="246" width="274" height="92" rx="16" fill="#102235" stroke="#3dffa0"/>
+  <rect x="98" y="364" width="274" height="92" rx="16" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="98" y="482" width="274" height="92" rx="16" fill="#102235" stroke="#f0a500"/>
+  <text x="130" y="284" fill="#eef2f8" font-family="Arial" font-size="20" font-weight="700">Metrics</text>
+  <text x="130" y="310" fill="#7a8fa8" font-family="Arial" font-size="14">Prometheus, exporters, RED and USE signals</text>
+  <text x="130" y="402" fill="#eef2f8" font-family="Arial" font-size="20" font-weight="700">Logs</text>
+  <text x="130" y="428" fill="#7a8fa8" font-family="Arial" font-size="14">Structured JSON with correlation IDs</text>
+  <text x="130" y="520" fill="#eef2f8" font-family="Arial" font-size="20" font-weight="700">Traces</text>
+  <text x="130" y="546" fill="#7a8fa8" font-family="Arial" font-size="14">OpenTelemetry across service hops</text>
+  <text x="90" y="652" fill="#3dffa0" font-family="Arial" font-size="16" font-weight="700">Platform win</text>
+  <text x="90" y="680" fill="#c8d4e3" font-family="Arial" font-size="15">Every team gets the same instrumentation contract from day one.</text>
+
+  <rect x="448" y="156" width="392" height="622" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="480" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">2. Reliability Control Loop</text>
+  <circle cx="644" cy="354" r="116" fill="#102235" stroke="#5bb4ff" stroke-width="4"/>
+  <text x="601" y="340" fill="#eef2f8" font-family="Arial" font-size="21" font-weight="800">SLOs</text>
+  <text x="553" y="368" fill="#7a8fa8" font-family="Arial" font-size="15">availability, latency, error budget</text>
+  <line x1="644" y1="238" x2="644" y2="178" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="534" y1="418" x2="476" y2="470" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="754" y1="418" x2="812" y2="470" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="566" y="542" width="156" height="74" rx="16" fill="#08111d" stroke="#31415f"/>
+  <text x="598" y="584" fill="#f0a500" font-family="Arial" font-size="18" font-weight="700">Burn Rate</text>
+  <text x="510" y="684" fill="#c8d4e3" font-family="Arial" font-size="15">Fast alerts for acute failures. Slow alerts for gradual reliability erosion.</text>
+
+  <rect x="876" y="156" width="346" height="622" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="908" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">3. Response Layers</text>
+  <rect x="916" y="250" width="266" height="84" rx="16" fill="#102235" stroke="#ff5f5f"/>
+  <rect x="916" y="362" width="266" height="84" rx="16" fill="#102235" stroke="#3dffa0"/>
+  <rect x="916" y="474" width="266" height="84" rx="16" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="916" y="586" width="266" height="84" rx="16" fill="#102235" stroke="#f0a500"/>
+  <text x="1009" y="300" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Alerting</text>
+  <text x="968" y="412" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Runbooks</text>
+  <text x="981" y="524" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Ownership</text>
+  <text x="973" y="636" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Postmortems</text>
+
+  <rect x="74" y="814" width="1130" height="44" rx="14" fill="#08111d" stroke="#31415f"/>
+  <text x="96" y="842" fill="#eef2f8" font-family="Arial" font-size="17" font-weight="700">Interview rule:</text>
+  <text x="220" y="842" fill="#c8d4e3" font-family="Arial" font-size="17">Do not stop at tools. Explain what gets measured, who owns the signal, and how the system improves after each incident.</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Platform Engineering Multi-Tenant Security and Isolation</title>
+  <desc id="desc">Infographic showing tenant isolation through namespaces, RBAC, network policy, secret boundaries, and audit controls.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060b14"/><stop offset="1" stop-color="#11111d"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#121a2b"/><stop offset="1" stop-color="#0d1524"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#20304a" stroke-width="1" opacity="0.35"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#5bb4ff"/></marker>
+  </defs>
+  <rect width="1280" height="900" fill="url(#bg)"/>
+  <rect width="1280" height="900" fill="url(#grid)" opacity="0.55"/>
+  <text x="64" y="74" fill="#eef2f8" font-family="Arial" font-size="38" font-weight="800">Platform Engineering: Multi-Tenant Security and Isolation</text>
+  <text x="64" y="112" fill="#7a8fa8" font-family="Arial" font-size="18">Security maturity shows up as layered boundaries, not a single auth checkbox.</text>
+
+  <rect x="58" y="156" width="428" height="620" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="90" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">1. Tenant Segmentation</text>
+  <rect x="102" y="252" width="146" height="144" rx="18" fill="#102235" stroke="#3dffa0"/>
+  <rect x="270" y="252" width="172" height="144" rx="18" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="102" y="428" width="146" height="144" rx="18" fill="#102235" stroke="#f0a500"/>
+  <rect x="270" y="428" width="172" height="144" rx="18" fill="#102235" stroke="#ff5f5f"/>
+  <text x="143" y="324" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Namespaces</text>
+  <text x="298" y="312" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">RBAC</text>
+  <text x="298" y="336" fill="#7a8fa8" font-family="Arial" font-size="13">Least privilege for teams and services</text>
+  <text x="140" y="500" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Quotas</text>
+  <text x="296" y="488" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Secrets</text>
+  <text x="288" y="512" fill="#7a8fa8" font-family="Arial" font-size="13">External store, short-lived credentials</text>
+  <text x="90" y="662" fill="#c8d4e3" font-family="Arial" font-size="15">Isolation should prevent noisy neighbors, accidental access, and privilege spread.</text>
+
+  <rect x="522" y="156" width="336" height="620" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="554" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">2. Traffic Boundaries</text>
+  <circle cx="690" cy="330" r="80" fill="#102235" stroke="#5bb4ff" stroke-width="4"/>
+  <text x="640" y="322" fill="#eef2f8" font-family="Arial" font-size="20" font-weight="700">Gateway</text>
+  <text x="612" y="348" fill="#7a8fa8" font-family="Arial" font-size="14">AuthN, rate limit, audit trail</text>
+  <rect x="584" y="476" width="210" height="74" rx="16" fill="#08111d" stroke="#31415f"/>
+  <text x="615" y="521" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Network Policy</text>
+  <line x1="690" y1="410" x2="690" y2="476" stroke="#5bb4ff" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="560" y="640" fill="#f0a500" font-family="Arial" font-size="16" font-weight="700">Good answer</text>
+  <text x="560" y="668" fill="#c8d4e3" font-family="Arial" font-size="15">Explain both logical isolation in Kubernetes and data isolation at the application layer.</text>
+
+  <rect x="894" y="156" width="328" height="620" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="926" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">3. Audit and Compliance</text>
+  <rect x="934" y="250" width="248" height="82" rx="16" fill="#102235" stroke="#3dffa0"/>
+  <rect x="934" y="360" width="248" height="82" rx="16" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="934" y="470" width="248" height="82" rx="16" fill="#102235" stroke="#ff5f5f"/>
+  <rect x="934" y="580" width="248" height="82" rx="16" fill="#102235" stroke="#f0a500"/>
+  <text x="987" y="298" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Access Logs</text>
+  <text x="974" y="408" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Change History</text>
+  <text x="1004" y="518" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Alerts</text>
+  <text x="961" y="628" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Rotation Policy</text>
+
+  <rect x="74" y="814" width="1130" height="44" rx="14" fill="#08111d" stroke="#31415f"/>
+  <text x="96" y="842" fill="#eef2f8" font-family="Arial" font-size="17" font-weight="700">Best framing:</text>
+  <text x="216" y="842" fill="#c8d4e3" font-family="Arial" font-size="17">Your 5-tier RBAC story is strong because it combines identity, data isolation, and operational control instead of security theater.</text>
+</svg>

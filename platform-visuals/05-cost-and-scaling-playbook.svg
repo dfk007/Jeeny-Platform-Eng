@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Platform Engineering Cost and Scaling Playbook</title>
+  <desc id="desc">Infographic showing demand curves, autoscaling, workload classes, unit economics, and platform cost optimization levers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070c16"/><stop offset="1" stop-color="#0b1220"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#121a2b"/><stop offset="1" stop-color="#0d1524"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="#20304a" stroke-width="1" opacity="0.35"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#5bb4ff"/></marker>
+  </defs>
+  <rect width="1280" height="900" fill="url(#bg)"/>
+  <rect width="1280" height="900" fill="url(#grid)" opacity="0.55"/>
+  <text x="64" y="74" fill="#eef2f8" font-family="Arial" font-size="38" font-weight="800">Platform Engineering: Cost and Scaling Playbook</text>
+  <text x="64" y="112" fill="#7a8fa8" font-family="Arial" font-size="18">Platform ownership includes efficiency: the job is not only uptime, but sustainable throughput per dollar.</text>
+
+  <rect x="56" y="154" width="452" height="626" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="88" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">1. Demand Shape</text>
+  <line x1="112" y1="648" x2="434" y2="648" stroke="#31415f" stroke-width="3"/>
+  <line x1="112" y1="648" x2="112" y2="290" stroke="#31415f" stroke-width="3"/>
+  <path d="M112 620 C180 600, 220 540, 256 516 S340 420, 434 330" fill="none" stroke="#5bb4ff" stroke-width="6"/>
+  <path d="M112 620 C182 610, 244 596, 320 580 S392 564, 434 560" fill="none" stroke="#f0a500" stroke-width="5" stroke-dasharray="12 10"/>
+  <text x="120" y="284" fill="#7a8fa8" font-family="Arial" font-size="13">traffic</text>
+  <text x="394" y="674" fill="#7a8fa8" font-family="Arial" font-size="13">time</text>
+  <text x="286" y="360" fill="#5bb4ff" font-family="Arial" font-size="16" font-weight="700">actual demand</text>
+  <text x="286" y="540" fill="#f0a500" font-family="Arial" font-size="16" font-weight="700">over-provisioned baseline</text>
+  <text x="88" y="716" fill="#c8d4e3" font-family="Arial" font-size="15">The platform objective is to make capacity follow demand, not fear.</text>
+
+  <rect x="544" y="154" width="328" height="626" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="576" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">2. Main Levers</text>
+  <rect x="584" y="252" width="248" height="82" rx="16" fill="#102235" stroke="#3dffa0"/>
+  <rect x="584" y="360" width="248" height="82" rx="16" fill="#102235" stroke="#5bb4ff"/>
+  <rect x="584" y="468" width="248" height="82" rx="16" fill="#102235" stroke="#f0a500"/>
+  <rect x="584" y="576" width="248" height="82" rx="16" fill="#102235" stroke="#ff5f5f"/>
+  <text x="632" y="300" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Right-sizing</text>
+  <text x="643" y="408" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Autoscaling</text>
+  <text x="626" y="516" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">Scheduling</text>
+  <text x="601" y="624" fill="#eef2f8" font-family="Arial" font-size="18" font-weight="700">App Efficiency</text>
+
+  <rect x="908" y="154" width="316" height="626" rx="24" fill="url(#card)" stroke="#24314a"/>
+  <text x="940" y="198" fill="#5bb4ff" font-family="Arial" font-size="20" font-weight="700">3. What to Say</text>
+  <text x="944" y="262" fill="#3dffa0" font-family="Arial" font-size="18" font-weight="700">Measure first</text>
+  <text x="944" y="290" fill="#c8d4e3" font-family="Arial" font-size="15">Use Prometheus to set requests and limits from reality.</text>
+  <text x="944" y="362" fill="#3dffa0" font-family="Arial" font-size="18" font-weight="700">Separate workloads</text>
+  <text x="944" y="390" fill="#c8d4e3" font-family="Arial" font-size="15">Stateless burst jobs and steady state services do not deserve the same node strategy.</text>
+  <text x="944" y="474" fill="#3dffa0" font-family="Arial" font-size="18" font-weight="700">Connect cost to product</text>
+  <text x="944" y="502" fill="#c8d4e3" font-family="Arial" font-size="15">Latency, throughput, and dollars per request should live on the same dashboard.</text>
+  <text x="944" y="586" fill="#3dffa0" font-family="Arial" font-size="18" font-weight="700">Show numbers</text>
+  <text x="944" y="614" fill="#c8d4e3" font-family="Arial" font-size="15">Your 35 percent and 60 percent wins are memorable because they prove engineering judgment.</text>
+
+  <rect x="74" y="814" width="1130" height="44" rx="14" fill="#08111d" stroke="#31415f"/>
+  <text x="96" y="842" fill="#eef2f8" font-family="Arial" font-size="17" font-weight="700">Interview rule:</text>
+  <text x="220" y="842" fill="#c8d4e3" font-family="Arial" font-size="17">Frame optimization as disciplined engineering. Cheap systems that fail are wasteful; resilient systems that waste capacity are also wasteful.</text>
+</svg>

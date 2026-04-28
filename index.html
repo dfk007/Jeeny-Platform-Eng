@@ -1495,9 +1495,13 @@ Cost optimization + scaling
             <span class="pill partial">70% faster integration</span>
             <span class="pill partial">99% uptime SLA</span>
             <span class="pill partial">1000+ concurrent users</span>
+            <span class="pill partial">500+ streaming sessions</span>
+            <span class="pill partial">&lt;50ms first token</span>
             <span class="pill partial">60% lower connection overhead</span>
             <span class="pill partial">&lt;20ms DB latency</span>
             <span class="pill partial">35% cost reduction</span>
+            <span class="pill partial">6 services</span>
+            <span class="pill partial">90% faster deployment</span>
           </div>
         </div>
       </div>
@@ -1541,6 +1545,19 @@ Cost optimization + scaling
             <div class="star-row"><span class="star-tag t-tag">T</span> <span>Reduce infrastructure and model-serving cost while keeping the platform stable.</span></div>
             <div class="star-row"><span class="star-tag a-tag">A</span> <span>Applied right-sizing, smarter workload placement, connection pooling, and application-level optimization.</span></div>
             <div class="star-row"><span class="star-tag r-tag">R</span> <span>35% lower cost, lower overhead, and stable performance backed by monitoring data.</span></div>
+          </div>
+        </div>
+
+        <div class="qa-item open">
+          <div class="qa-q">
+            Story 4 — Enterprise-grade FastAPI / microservices story
+            <span class="qa-arrow">▼</span>
+          </div>
+          <div class="qa-a" style="display:block">
+            <div class="star-row"><span class="star-tag s-tag">S</span> <span>We needed ServeLLM to behave like a real production platform, not a demo app: multiple services, streaming APIs, storage, database pooling, and reliable deployment for enterprise clients.</span></div>
+            <div class="star-row"><span class="star-tag t-tag">T</span> <span>Design and ship a production-grade microservices platform with FastAPI at the core, strong deployment discipline, and enough reliability for real client usage.</span></div>
+            <div class="star-row"><span class="star-tag a-tag">A</span> <span>Built the FastAPI backend and integrated it with Next.js, PostgreSQL, PgBouncer, MinIO, and Ollama through Docker Compose. Added streaming and non-streaming OpenAI-compatible endpoints, automated Alembic migrations on startup, health checks across 6 services, and one-command deployment with containerized infrastructure.</span></div>
+            <div class="star-row"><span class="star-tag r-tag">R</span> <span>Delivered a production-ready platform with 500+ concurrent streaming sessions, &lt;50ms time-to-first-token, 99% uptime, and 90% faster deployment for enterprise-grade rollout.</span></div>
           </div>
         </div>
       </div>

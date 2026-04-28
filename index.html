@@ -1541,10 +1541,10 @@ Cost optimization + scaling
             <span class="qa-arrow">▼</span>
           </div>
           <div class="qa-a" style="display:block">
-            <div class="star-row"><span class="star-tag s-tag">S</span> <span>AI workloads were expensive and needed better efficiency without hurting performance.</span></div>
-            <div class="star-row"><span class="star-tag t-tag">T</span> <span>Reduce infrastructure and model-serving cost while keeping the platform stable.</span></div>
-            <div class="star-row"><span class="star-tag a-tag">A</span> <span>Applied right-sizing, smarter workload placement, connection pooling, and application-level optimization.</span></div>
-            <div class="star-row"><span class="star-tag r-tag">R</span> <span>35% lower cost, lower overhead, and stable performance backed by monitoring data.</span></div>
+            <div class="star-row"><span class="star-tag s-tag">S</span> <span>ServeLLM had to support real enterprise usage, but LLM inference and infrastructure costs would climb quickly if every request was routed the same way and services were over-provisioned.</span></div>
+            <div class="star-row"><span class="star-tag t-tag">T</span> <span>Reduce model-serving and platform cost without degrading latency, uptime, or tenant experience in production.</span></div>
+            <div class="star-row"><span class="star-tag a-tag">A</span> <span>Used production metrics to right-size containers, set resource limits, and tune PgBouncer pooling. On the model-serving side, introduced smarter routing and serving decisions for different workloads, kept streaming paths lightweight, and reduced avoidable overhead in the request path instead of just adding more compute.</span></div>
+            <div class="star-row"><span class="star-tag r-tag">R</span> <span>Cut LLM platform cost by 35%, reduced connection overhead by 60%, kept services under &lt;1.5GB memory footprint, and maintained stable production performance for enterprise tenants.</span></div>
           </div>
         </div>
 

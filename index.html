@@ -482,6 +482,7 @@
     <button class="tab-btn" onclick="showTab('visuals')">◈ System Visuals</button>
     <button class="tab-btn" onclick="showTab('ask')">💬 Ask the Interviewer</button>
     <button class="tab-btn" onclick="showTab('logistics')">🗺️ Day-Of Checklist</button>
+    <button class="tab-btn" onclick="showTab('tonight')">🧭 Tonight Prep</button>
     <button class="tab-btn" onclick="showTab('jd')">📋 Job Description</button>
   </nav>
 
@@ -1349,7 +1350,124 @@ rules:
 
 
   <!-- ══════════════════════════════════════════
-       TAB 8 — JOB DESCRIPTION
+       TAB 8 — TONIGHT PREP
+   ══════════════════════════════════════════ -->
+  <div id="tab-tonight" class="tab-panel">
+    <h2><span class="icon">🧭</span> Tonight Prep — Simple 2-Hour Plan</h2>
+
+    <div class="info-box tip mb-24">
+      <strong style="color:var(--green)">Goal:</strong> Do not try to cover everything. Use these 2 hours to lock in your intro, your 3 strongest stories, the highest-probability technical topics, your bridge answers, and your closing questions.
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="section-label">2-Hour Schedule</div>
+        <div class="card mb-16">
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot">20</div>
+              <div class="tl-body">
+                <div class="tl-title">0:00-0:20 — Re-anchor on the role</div>
+                <div class="tl-text">Read only the core pillars once: IDP, AWS/EKS, Terraform, CI/CD, observability, DevSecOps, cost optimization. Skip deep rabbit holes.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">20</div>
+              <div class="tl-body">
+                <div class="tl-title">0:20-0:40 — Practice your intro</div>
+                <div class="tl-text">Rehearse your 60-90 second opening until it sounds natural: who you are, what you built, and why Jeeny platform engineering fits.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">25</div>
+              <div class="tl-body">
+                <div class="tl-title">0:40-1:05 — Lock 3 stories</div>
+                <div class="tl-text">Use one story for IDP/self-service, one for incident/RCA, and one for scaling or cost optimization. Memorize the numbers, not full scripts.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">25</div>
+              <div class="tl-body">
+                <div class="tl-title">1:05-1:30 — Refresh technical depth</div>
+                <div class="tl-text">Review Kubernetes scaling, Terraform EKS structure, observability stack, RBAC/IAM/secrets, and HA/SLO concepts. Stay at interview level, not certification level.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">15</div>
+              <div class="tl-body">
+                <div class="tl-title">1:30-1:45 — Prepare bridge answers</div>
+                <div class="tl-text">Keep calm, honest answers ready for MongoDB, ELK, Jenkins, and any AWS-specific gaps. Equivalent experience plus ramp-up plan.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">15</div>
+              <div class="tl-body">
+                <div class="tl-title">1:45-2:00 — Close and stop</div>
+                <div class="tl-text">Pick 3 questions for the interviewer, set clothes and logistics, then stop studying. Sleep is now higher value than more cramming.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-amber">
+          <h3>What success looks like tonight</h3>
+          <ul class="styled">
+            <li>You can deliver your intro without sounding rehearsed</li>
+            <li>You can answer 3-4 major questions from your real experience</li>
+            <li>You remember your strongest metrics and outcomes</li>
+            <li>You have honest bridge answers for weaker areas</li>
+            <li>You walk in calm instead of overloaded</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">Skills Arrow Map</div>
+
+        <div class="card card-green mb-16">
+          <h3>Role Skill Flow</h3>
+          <pre>IDP / self-service platform
+-> templates + workflows + documentation
+-> faster developer onboarding + better DX
+
+AWS + Kubernetes + Docker + Terraform
+-> scalable cloud-native platform on EKS
+-> reliable microservices infrastructure
+
+CI/CD + observability + reliability
+-> safe deployments + alerting + SLO thinking
+-> RCA, uptime, performance ownership
+
+DevSecOps + IAM/RBAC + secrets + automation
+-> secure standardized delivery
+-> lower operational risk and less manual work
+
+Cost optimization + scaling
+-> right-sizing + autoscaling + efficiency
+-> lower spend with stable performance</pre>
+        </div>
+
+        <div class="card card-blue mb-16">
+          <h3>Tonight's Focus Order</h3>
+          <ul class="styled">
+            <li><strong>First:</strong> intro and platform story</li>
+            <li><strong>Then:</strong> Kubernetes, Terraform, CI/CD, observability</li>
+            <li><strong>Then:</strong> security, IAM, RBAC, secrets</li>
+            <li><strong>Then:</strong> cost optimization and incident handling</li>
+            <li><strong>Last:</strong> gap-bridging for MongoDB, ELK, Jenkins</li>
+          </ul>
+        </div>
+
+        <div class="info-box warn">
+          <strong>Simple rule for tonight:</strong> if a topic will not likely come up tomorrow, skip it. Depth on your real projects beats shallow coverage of every tool in the JD.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       TAB 9 — JOB DESCRIPTION
    ══════════════════════════════════════════ -->
   <div id="tab-jd" class="tab-panel">
     <h2><span class="icon">📋</span> Job Description — Jeeny Platform Engineer</h2>

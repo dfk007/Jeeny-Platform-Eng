@@ -483,6 +483,7 @@
     <button class="tab-btn" onclick="showTab('ask')">💬 Ask the Interviewer</button>
     <button class="tab-btn" onclick="showTab('logistics')">🗺️ Day-Of Checklist</button>
     <button class="tab-btn" onclick="showTab('tonight')">🧭 Tonight Prep</button>
+    <button class="tab-btn" onclick="showTab('stories')">⭐ Star Stories to Prep</button>
     <button class="tab-btn" onclick="showTab('jd')">📋 Job Description</button>
   </nav>
 
@@ -1467,7 +1468,88 @@ Cost optimization + scaling
 
 
   <!-- ══════════════════════════════════════════
-       TAB 9 — JOB DESCRIPTION
+       TAB 9 — STAR STORIES TO PREP
+   ══════════════════════════════════════════ -->
+  <div id="tab-stories" class="tab-panel">
+    <h2><span class="icon">⭐</span> Star Stories to Prep</h2>
+
+    <div class="info-box tip mb-24">
+      <strong style="color:var(--green)">Use this only for the 0:40-1:05 block:</strong> lock 3 stories, remember the numbers, and practice them in simple STAR order. Do not over-script.
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="section-label">What To Do In 25 Minutes</div>
+        <div class="card mb-16">
+          <ul class="styled">
+            <li>Pick these 3 stories only: self-service platform, production incident, cost/scaling win</li>
+            <li>Memorize the outcome metrics, not full sentences</li>
+            <li>For each story, be able to say Situation, Task, Action, Result in under 90 seconds</li>
+            <li>Practice each one out loud once or twice</li>
+          </ul>
+        </div>
+
+        <div class="card card-amber">
+          <h3>Numbers to remember</h3>
+          <div class="pill-row">
+            <span class="pill partial">70% faster integration</span>
+            <span class="pill partial">99% uptime SLA</span>
+            <span class="pill partial">1000+ concurrent users</span>
+            <span class="pill partial">60% lower connection overhead</span>
+            <span class="pill partial">&lt;20ms DB latency</span>
+            <span class="pill partial">35% cost reduction</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">3 Stories Only</div>
+
+        <div class="qa-item open">
+          <div class="qa-q">
+            Story 1 — Self-service / IDP story
+            <span class="qa-arrow">▼</span>
+          </div>
+          <div class="qa-a" style="display:block">
+            <div class="star-row"><span class="star-tag s-tag">S</span> <span>Teams needed LLM access without DevOps becoming the bottleneck for every onboarding request.</span></div>
+            <div class="star-row"><span class="star-tag t-tag">T</span> <span>Build a self-service platform with access control, onboarding, and tenant isolation.</span></div>
+            <div class="star-row"><span class="star-tag a-tag">A</span> <span>Built ServeLLM with 5-tier RBAC, self-service API keys, per-org dashboards, and one-command provisioning.</span></div>
+            <div class="star-row"><span class="star-tag r-tag">R</span> <span>70% faster integration, 99% uptime, 1000+ concurrent users, zero DevOps-gated onboarding.</span></div>
+          </div>
+        </div>
+
+        <div class="qa-item open">
+          <div class="qa-q">
+            Story 2 — Production incident / RCA story
+            <span class="qa-arrow">▼</span>
+          </div>
+          <div class="qa-a" style="display:block">
+            <div class="star-row"><span class="star-tag s-tag">S</span> <span>ServeLLM hit database connection exhaustion during peak load and user requests started failing.</span></div>
+            <div class="star-row"><span class="star-tag t-tag">T</span> <span>Restore service fast and prevent the same class of failure from recurring.</span></div>
+            <div class="star-row"><span class="star-tag a-tag">A</span> <span>Used Prometheus and Grafana to trace the issue, tuned PgBouncer, switched pooling mode, and added safer limits and checks.</span></div>
+            <div class="star-row"><span class="star-tag r-tag">R</span> <span>60% lower connection overhead, &lt;20ms DB latency, zero recurrence after the fix.</span></div>
+          </div>
+        </div>
+
+        <div class="qa-item open">
+          <div class="qa-q">
+            Story 3 — Cost / scaling story
+            <span class="qa-arrow">▼</span>
+          </div>
+          <div class="qa-a" style="display:block">
+            <div class="star-row"><span class="star-tag s-tag">S</span> <span>AI workloads were expensive and needed better efficiency without hurting performance.</span></div>
+            <div class="star-row"><span class="star-tag t-tag">T</span> <span>Reduce infrastructure and model-serving cost while keeping the platform stable.</span></div>
+            <div class="star-row"><span class="star-tag a-tag">A</span> <span>Applied right-sizing, smarter workload placement, connection pooling, and application-level optimization.</span></div>
+            <div class="star-row"><span class="star-tag r-tag">R</span> <span>35% lower cost, lower overhead, and stable performance backed by monitoring data.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       TAB 10 — JOB DESCRIPTION
    ══════════════════════════════════════════ -->
   <div id="tab-jd" class="tab-panel">
     <h2><span class="icon">📋</span> Job Description — Jeeny Platform Engineer</h2>
